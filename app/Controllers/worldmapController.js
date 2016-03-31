@@ -7,7 +7,7 @@ app.controller('worldmapController', ['$location', 'worldmapService', function($
 			var countryData = {};
 			
 			angular.forEach(data, function(value, key) {
-					countryData[value.LandIso] = value.Status;
+					countryData[value.landIso] = value.status;
 				});
 			
 			$('#world-map').vectorMap({
@@ -18,7 +18,8 @@ app.controller('worldmapController', ['$location', 'worldmapService', function($
 						scale: ['#FFFFFF', '#00FF00'],
 						normalizeFunction: 'polynomial'
 					}]
-				}
+				},
+				backgroundColor: '#0000FF'
 			});
 		});
 	};
