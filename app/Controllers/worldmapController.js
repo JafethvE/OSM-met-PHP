@@ -10,13 +10,15 @@ app.controller('worldmapController', ['$location', 'worldmapService', function($
 					countryData[value.landIso] = value.status;
 				});
 			
+			console.log(countryData);
+			
 			$('#world-map').vectorMap({
 				map: 'world_mill',
 				series: {
 					regions: [{
 						values: countryData,
-						scale: ['#FFFFFF', '#00FF00'],
-						normalizeFunction: 'polynomial'
+						scale: ['#888888', '#FFFFFF', '#BBFFBB', '#66FF66', '#00FF00'],
+						normalizeFunction: 'linear'
 					}]
 				},
 				backgroundColor: '#0000FF'
