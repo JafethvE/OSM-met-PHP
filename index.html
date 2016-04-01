@@ -16,10 +16,16 @@
 		<link rel="stylesheet" href="app/Views/Stylesheets/jquery-jvectormap-2.0.3.css" type="text/css" media="screen"/>
 	</head>
 
-	<body ng-app="worldmap">
+	<body ng-app="worldmap" background="background.jpg">
 		<div id="container" ng-controller="worldmapController">
+		<div id="header">
+		<img src="logo.png" alt="Mountain View" style="width:150px;height:75px;">
+		</div>
+		
 			<h1>{{"Worldmap!"}}</h1>
 			<div id="world-map" style="width: 80%; height: 400px"></div>
+					
+			</div>
 		</div>
 	</body>
 </html>
