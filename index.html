@@ -4,7 +4,7 @@
 	    <title>
 	        Worldmap!
 	    </title>
-		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 		<script type="text/javascript" src="assets/libs/angular/angular.min.js"></script>
 	    <script type="text/javascript" src="app/app.js"></script>
 		<script type="text/javascript" src="app/Controllers/worldmapController.js"></script>
@@ -24,8 +24,24 @@
 			<h1>{{"Worldmap!"}}</h1>
 			<div id="world-map" style="width: 80%; height: 400px">
 			</div>
-			<div ng-repeat="country in worldmapController.countries" class="country">
-			<img src="app/Views/Images/Vlaggetjes/{{country.landImage}}.png" alt="country flag">
+		<!--	<div id="tableShow">
+			<table class="inline" id="landjes">
+			<tr>
+			<td><font color="white">Vlag</font></td>
+			<td><font color="white">Landnaam</font></td>
+			</tr>
+			<tr ng-repeat="country in worldmapController.countries">
+			<td><img src="app/Views/Images/Vlaggetjes/{{country.landImage}}.png" alt="country flag"></td>
+			<td><font color="white">{{country.landIso}}</font></td>
+			</tr>
+			
+			</table>
+			</div> -->
+			
+			<div id="tableShow" class="row">
+				<div class="col-md-4" ng-repeat="country in worldmapController.countries">
+					<img src="app/Views/Images/Vlaggetjes/{{country.landImage}}.png" alt="country flag"> <font color="white">{{country.landIso}}</font>
+				</div>
 			</div>
 		</div>
 	</body>

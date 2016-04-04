@@ -6,6 +6,18 @@ html, body{
 background-color:#808080;
 }
 
+
+table.inline{
+display:inline-table;
+vertical-align:top;
+}
+
+#landjes{
+text-color: #FFFFFF;
+border-style:dotted;
+
+}
+
 #header{
 background-color:#016CD5;
 height: 90px;
