@@ -8,7 +8,7 @@ app.controller('worldmapController', ['$location', 'worldmapService', function($
 			var countryData = {};
 			
 			angular.forEach(data, function(value, key) {
-					countryData[value.landIso] = value.status;
+					countryData[value.landIso] = value.landStatus;
 				});
 			
 			worldMapController.createWorldMap(countryData);

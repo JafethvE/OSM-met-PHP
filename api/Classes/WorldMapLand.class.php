@@ -4,7 +4,8 @@ class WorldMapLand
 {
 	public $landId;
 	public $landIso;
-	public $status;
+	public $landStatus;
+	public $landImage;
 }
 
 ?>

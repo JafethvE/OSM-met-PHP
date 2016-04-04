@@ -15,7 +15,7 @@ $worldMapLands = array();
 $i = 0;
 
 //Runs the query to get all weapons and, with the data from that, fills the weapons array.
-$result = $database->prepare('SELECT l.landid, l.isocode, l.beschikbaar FROM land l');
+$result = $database->prepare('SELECT l.landid, l.isocode, l.beschikbaar, l.image FROM land l');
 $result->execute();
 $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
@@ -24,14 +24,23 @@ foreach($rows as $row) {
 	
 	$worldMapLand->landIso = $row['isocode'];
 	$worldMapLand->landId = $row['landid'];
-	
-	if($row['beschikbaar'] == 0)
+	if($row['image'])
 	{
-		$worldMapLand->status = 0;
+		$worldMapLand->landImage = $row['image'];
 	}
 	else
 	{
-		$worldMapLand->status = 1;
+		$worldMapLand->landImage = "default";
+	}
+	
+	
+	if($row['beschikbaar'] == 0)
+	{
+		$worldMapLand->landStatus = 0;
+	}
+	else
+	{
+		$worldMapLand->landStatus = 1;
 	}
 	
 	$worldMapLands[$i] = $worldMapLand;
@@ -51,15 +60,15 @@ foreach($worldMapLands as $worldMapLand)
 		{
 			if($row['competitiegewonnen'] > 0)
 			{
-				$worldMapLand->status = 4;
+				$worldMapLand->landStatus = 4;
 			}
 			else if ($row['bekergewonnen'] > 0)
 			{
-				$worldMapLand->status = 3;
+				$worldMapLand->landStatus = 3;
 			}
 			else if ($row['doelstellingbehaald'] > 0)
 			{
-				$worldMapLand->status = 2;
+				$worldMapLand->landStatus = 2;
 			}
 			break;
 		}
