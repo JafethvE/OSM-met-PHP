@@ -17,14 +17,14 @@
 	</head>
 
 	<body ng-app="worldmap" background="background.jpg">
-		<div id="container" ng-controller="worldmapController">
-		<div id="header">
-		<img src="logo.png" alt="Mountain View" style="width:150px;height:75px;">
-		</div>
-		
+		<div id="container" ng-controller="worldmapController as worldmapController">
+			<div id="header">
+				<img src="logo.png" alt="Mountain View" style="width:150px;height:75px;">
+			</div>
 			<h1>{{"Worldmap!"}}</h1>
-			<div id="world-map" style="width: 80%; height: 400px"></div>
-					
+			<div id="world-map" style="width: 80%; height: 400px">
+			</div>
+			<div ng-repeat="country in worldmapController.countries" class="country">
 			</div>
 		</div>
 	</body>
