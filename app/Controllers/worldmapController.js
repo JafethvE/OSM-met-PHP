@@ -12,7 +12,7 @@ app.controller('worldmapController', ['$location', 'worldmapService', function($
 			});
 			
 			worldMapController.createWorldMap(countryData);
-			worldMapController.countries = data;
+			worldMapController.countries = data.data;
 			
 		});
 		
