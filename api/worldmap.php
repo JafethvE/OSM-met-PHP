@@ -15,7 +15,7 @@ $worldMapLands = array();
 $i = 0;
 
 //Runs the query to get all weapons and, with the data from that, fills the weapons array.
-$result = $database->prepare('SELECT l.landid, l.isocode, l.beschikbaar, l.image FROM land l');
+$result = $database->prepare('SELECT l.landid, l.isocode, l.beschikbaar, l.naam, l.image FROM land l');
 $result->execute();
 $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
@@ -24,6 +24,7 @@ foreach($rows as $row) {
 	
 	$worldMapLand->landIso = $row['isocode'];
 	$worldMapLand->landId = $row['landid'];
+	$worldMapLand->landNaam = $row['naam'];
 	if($row['image'])
 	{
 		$worldMapLand->landImage = $row['image'];
@@ -48,7 +49,7 @@ foreach($rows as $row) {
 }
 
 $result = $database->prepare('SELECT h.land, h.doelstellingbehaald, h.bekergewonnen, h.competitiegewonnen FROM landhistorie h WHERE manager = :manager');
-$result->bindValue(':manager', $_POST['manager']);
+$result->bindValue(':manager', $_POST['manager'], PDO::PARAM_INT);
 $result->execute();
 $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 

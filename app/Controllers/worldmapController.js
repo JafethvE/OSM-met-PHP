@@ -1,26 +1,28 @@
 app.controller('worldmapController', ['$location', 'worldmapService', function($location, worldmapService) {
 	var worldMapController = this;
-	var manager = $location.search().managerID; 
+	var manager = $location.search().managerID;
 	var countries;
 	
 	worldMapController.getWorldmap = function() {
-		worldmapService.getCountries(manager).success(function(data) {
+		worldmapService.getCountries(manager).then(function(data) {
 			var countryData = {};
 			
-			angular.forEach(data, function(value, key) {
-					countryData[value.landIso] = value.landStatus;
-				});
+			angular.forEach(data.data, function(value, key) {
+				countryData[value.landIso] = value.landStatus;
+			});
 			
 			worldMapController.createWorldMap(countryData);
 			worldMapController.countries = data;
+			
 		});
+		
 		
 	};
 	
 	worldMapController.createWorldMap = function(countryData)
 	{
 		$('#world-map').vectorMap({
-				map: 'world_mill',
+				map: 'world_mill_en',
 				series: {
 					regions: [{
 						values: countryData,
@@ -79,8 +81,7 @@ app.controller('worldmapController', ['$location', 'worldmapService', function($
 		return flavourText;
 	}
 	
-	if(manager) {
-		worldMapController.getWorldmap();
-	}
+	worldMapController.getWorldmap();
+	
 }
 ]);

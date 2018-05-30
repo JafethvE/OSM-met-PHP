@@ -6,6 +6,7 @@ class WorldMapLand
 	public $landIso;
 	public $landStatus;
 	public $landImage;
+	public $landNaam;
 }
 
 ?>

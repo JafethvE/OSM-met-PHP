@@ -4,16 +4,18 @@
 	    <title>
 	        Worldmap!
 	    </title>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-		<script type="text/javascript" src="assets/libs/angular/angular.min.js"></script>
-	    <script type="text/javascript" src="app/app.js"></script>
-		<script type="text/javascript" src="app/Controllers/worldmapController.js"></script>
-		<script type="text/javascript" src="app/Services/worldmapService.js"></script>
-		<script type="text/javascript" src="lib/jquery-2.2.2.min.js"></script>
-		<script type="text/javascript" src="lib/Vectormap/jquery-jvectormap-2.0.3.min.js"></script>
-		<script type="text/javascript" src="lib/Vectormap/Maps/jquery-jvectormap-world-mill.js"></script>
 		
-		<link rel="stylesheet" href="app/Views/Stylesheets/jquery-jvectormap-2.0.3.css" type="text/css" media="screen"/>
+		<script src="assets/libs/angular/angular.js"></script>
+		<script src="assets/libs/jquery/jquery-3.3.1.min.js"></script>
+		<script src="assets/libs/bootstrap/js/bootstrap.min.js"></script>
+		<script src="assets/libs/vectormap/js/jquery-jvectormap-2.0.3.min.js"></script>
+		<script src="assets/libs/vectormap/js/jquery-jvectormap-world-mill-en.js"></script>
+	    <script src="app/app.js"></script>
+		<script src="app/Controllers/worldmapController.js"></script>
+		<script src="app/Services/worldmapService.js"></script>
+		
+		<link rel="stylesheet" href="assets/libs/bootstrap/css/bootstrap.min.css" type="text/css" media="screen"/>
+		<link rel="stylesheet" href="assets/libs/vectormap/css/jquery-jvectormap-2.0.3.css" type="text/css" media="screen"/>
 	</head>
 
 	<body ng-app="worldmap" background="background.jpg">
@@ -40,7 +42,7 @@
 			
 			<div id="tableShow" class="row">
 				<div class="col-md-4" ng-repeat="country in worldmapController.countries">
-					<img src="app/Views/Images/Vlaggetjes/{{country.landImage}}.png" alt="country flag"> <font color="white">{{country.landIso}}</font>
+					<img src="app/Views/Images/Vlaggetjes/{{country.landImage}}.png" alt="country flag"> <font color="white">{{country.landNaam}}</font>
 				</div>
 			</div>
 		</div>
